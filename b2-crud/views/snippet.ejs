@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>All Snippets</title>
+</head>
+
+<body>
+  <div class="main-content">
+
+
+    <%- include('header') -%>
+
+    <div class="container">
+      <%- include('flash') -%>
+
+      <h1>All Snippets</h1>
+      <% if (snippets.length===0) { %>
+        <p>No snippets found.</p>
+        <% } else { %>
+          <ul>
+            <% snippets.forEach(snippet=> { %>
+              <li>
+                <div class="snippet">
+                  <p>
+                    <strong>Creator:</strong>
+                    <%= snippet.creator %>
+
+                  </p><br>
+                  
+                  <p>
+                    <strong>Title:</strong>
+                    <%= snippet.title %>
+                  </p>
+                  <strong>Content:</strong>
+
+                  <pre><%= snippet.content %></pre>
+                </div>
+              </li>
+              <% }); %>
+          </ul>
+          <% } %>
+            <a href="/home">Back to Home</a>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Ghiath</p>
+  </footer>
+</body>
+
+</html>

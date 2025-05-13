@@ -1,0 +1,23 @@
+<header>
+  <nav>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/snippet">All Snippets</a></li>
+      <li><a href="/snippet/create">Create New Snippet</a></li>
+      <li><a href="/snippet/my-snippets">My Snippets</a></li>
+      <% if (user) { %>
+        <div class="welcome">
+          <p>
+            <%= user.username %>!
+          </p>
+        </div>
+
+        <li><a href="/User/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/User/login">Login</a></li>
+          <li><a href="/User/register">Register</a></li>
+          <% } %>
+    </ul>
+  </nav>
+
+</header>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>GitLab Issues</title>
+</head>
+
+<body>
+  <h1>GitLab Issues</h1>
+  <ul id="issueList">
+    <% issues.forEach(issue=> { %>
+      <li id="issue<%= issue.iid %>" style="list-style: none;">
+        <p ><strong>Title: </strong>
+          <%= issue.title %>
+        </p>
+        <p><strong>Description: </strong>
+          <%= issue.description %>
+        </p>
+        <p><strong>Creator: </strong>
+          <%= issue.author.name %>
+        </p> <!--<img src="<%= issue.author.avatar_url %>" alt=""> -->
+        <p class="stateID"><strong>State: </strong>
+          <%= issue.state %>
+        </p>
+        <a href="<%= issue.web_url %>">view on Git</a>
+      </li>
+    <% }); %>
+  </ul>
+
+  <script src="socket.io/socket.io.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

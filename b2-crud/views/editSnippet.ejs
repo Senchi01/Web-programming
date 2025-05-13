@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit Snippet</title>
+</head>
+<body>
+  <div class="main-content">
+
+    <%- include('header') -%>
+
+    <div class="container">
+        <h1>Edit Snippet</h1>
+        <form class="edit-form" action="/snippet/<%= snippet._id %>/edit" method="POST">
+          <input type="text" name="title" placeholder="Title" value="<%= snippet.title %>" required>
+          <textarea name="content" placeholder="Content" rows="20" required><%= snippet.content %></textarea>
+          <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+    <footer>
+      <p>&copy; 2024 Ghiath</p>
+    </footer>
+</body>
+</html>

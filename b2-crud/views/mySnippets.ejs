@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>My Snippets</title>
+</head>
+
+<body>
+  <div class="main-content">
+
+    <%- include('header') -%>
+
+    <div class="container">
+      <h1>My Snippets</h1>
+      <% if (snippets.length===0) { %>
+        <p>No snippets found.</p>
+        <% } else { %>
+          <ul>
+            <% snippets.forEach(snippet=> { %>
+              <li>
+                <div class="snippet">
+                  <h2>
+                    <%= snippet.title %>
+                  </h2>
+                  <pre><%= snippet.content %></pre>
+                  <a href="/snippet/<%= snippet._id %>/edit" class="edit-button">Edit</a>
+                  <form action="/snippet/<%= snippet._id %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                  </form>
+                </div>
+              </li>
+              <% }); %>
+          </ul>
+          <% } %>
+            <a href="/home">Back to Home</a>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Ghiath</p>
+  </footer>
+</body>
+
+</html>
